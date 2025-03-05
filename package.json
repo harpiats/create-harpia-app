@@ -1,0 +1,47 @@
+{
+  "name": "create-harpia-app",
+  "version": "0.0.1",
+  "module": "index.ts",
+  "description": "A CLI tool to create a new Harpia project",
+  "main": "src/index.js",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "create-hefestos-app": "src/index.js"
+  },
+  "keywords": [
+    "harpiats",
+    "harpia",
+    "create-harpia-app",
+    "harpia-framework",
+    "api",
+    "fullstack",
+    "web framework",
+    "web-app",
+    "server-side",
+    "open-source",
+    "cli"
+  ],
+  "author": {
+    "name": "Lucas Nathan",
+    "url": "https://github.com/lucasnjsilva"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harpia-framework/create-harpia-app"
+  },
+  "homepage": "https://github.com/harpia-framework/create-harpia-app",
+  "bugs": {
+    "url": "https://github.com/harpia-framework/create-harpia-app/issues"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^7.3.2"
+  }
+}

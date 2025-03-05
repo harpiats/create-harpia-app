@@ -1,0 +1,14 @@
+import path from "node:path";
+import { TemplateEngine } from "harpiats/template-engine";
+
+const baseDir = process.cwd();
+
+export const html = new TemplateEngine({
+  viewName: "page",
+  useModules: true,
+  path: {
+    views: path.join(baseDir, "modules", "**", "pages"),
+    layouts: path.join(baseDir, "resources", "layouts"),
+    partials: path.join(baseDir, "resources", "partials"),
+  },
+});
