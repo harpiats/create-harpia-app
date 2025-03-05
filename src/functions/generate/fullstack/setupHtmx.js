@@ -1,14 +1,18 @@
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { executeCommand } from "src/utils";
 
 export function setupHTMX(projectName) {
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
   // Install o HTMX
   executeCommand(`cd ${projectName} && bun add htmx.org`);
 
   // Initialize HTMX in resources/assets/js/scripts.js
   const scriptsPath = path.join(process.cwd(), projectName, "resources/assets/js/scripts.js");
-  const htmxPath = path.join(process.cwd(), "src/templates/htmx.txt");
+  const htmxPath = path.join(__dirname, "../../..", "templates/htmx.txt");
 
   fs.readFile(htmxPath, "utf-8", (err, htmxContent) => {
     if (err) {

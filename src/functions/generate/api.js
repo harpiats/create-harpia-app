@@ -1,5 +1,5 @@
 import { clearProject, colorize, executeCommand } from "src/utils";
-import { executeCommandList } from "../executeCommands";
+import { installDependencies } from "src/utils/installDependencies";
 import { writeEnvFile } from "../writeEnvFile";
 
 export function GenerateApi(projectName, appMode) {
@@ -9,5 +9,6 @@ export function GenerateApi(projectName, appMode) {
 
   executeCommand(command);
   clearProject(projectName);
+  installDependencies(projectName);
   writeEnvFile(projectName, appMode);
 }

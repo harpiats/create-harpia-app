@@ -1,5 +1,6 @@
 import { writeEnvFile } from "src/functions/writeEnvFile";
 import { clearProject, colorize, executeCommand } from "src/utils";
+import { installDependencies } from "src/utils/installDependencies";
 import { createResources } from "./createResources";
 import { replaceServerFile } from "./replaceServerFile";
 import { setupAlpine } from "./setupAlpine";
@@ -14,6 +15,7 @@ export function GenerateFullStack(projectName, appMode, tailwind, alpine, htmx) 
 
   executeCommand(command);
   clearProject(projectName);
+  installDependencies(projectName);
   writeEnvFile(projectName, appMode);
 
   // Set up template engine

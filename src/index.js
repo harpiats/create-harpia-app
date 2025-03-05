@@ -3,9 +3,7 @@
 import { input, select } from "@inquirer/prompts";
 import { GenerateApi } from "./functions/generate/api.js";
 import { GenerateFullStack } from "./functions/generate/fullstack/index.js";
-import { deleteGitFolder } from "./utils/deleteGitFolders.js";
 import { colorize } from "./utils/index.js";
-import { installDependencies } from "./utils/installDependencies.js";
 
 try {
   const projectName = await input({ message: "Enter the project name:", required: true });
@@ -46,9 +44,6 @@ try {
   } else {
     GenerateApi(projectName, appMode);
   }
-
-  deleteGitFolder(projectName);
-  installDependencies(projectName);
 
   console.log("Let's code");
   console.log(`cd ${projectName}`);

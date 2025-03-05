@@ -1,14 +1,18 @@
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { executeCommand } from "src/utils";
 
 export function setupAlpine(projectName) {
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+
   // Install o alpinejs
   executeCommand(`cd ${projectName} && bun add alpinejs`);
 
   // Initialize Alpine in resources/assets/js/scripts.js
   const scriptsPath = path.join(process.cwd(), projectName, "resources/assets/js/scripts.js");
-  const alpinePath = path.join(process.cwd(), "src/templates/alpine.txt");
+  const alpinePath = path.join(__dirname, "../../..", "templates/alpine.txt");
 
   fs.readFile(alpinePath, "utf-8", (err, alpineContent) => {
     if (err) {
