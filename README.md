@@ -1,15 +1,11 @@
-# create-harpia-app
+# Create Harpia App
 
-To install dependencies:
-
-```bash
-bun install
-```
-
-To run:
+You can create a new project using the commands:
 
 ```bash
-bun run src/index.ts
+bun install -g create-harpia-app
 ```
 
-This project was created using `bun init` in bun v1.2.4. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+```bash
+bunx create-harpia-app
+```

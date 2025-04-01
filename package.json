@@ -1,6 +1,6 @@
 {
   "name": "create-harpia-app",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "module": "index.ts",
   "description": "A CLI tool to create a new Harpia project",
   "main": "src/index.js",
