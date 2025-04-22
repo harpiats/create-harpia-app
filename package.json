@@ -1,13 +1,17 @@
 {
   "name": "create-harpia-app",
-  "version": "0.0.4",
-  "module": "index.ts",
+  "version": "0.0.5",
+  "module": "index.js",
   "description": "A CLI tool to create a new Harpia project",
   "main": "src/index.js",
   "type": "module",
   "license": "MIT",
   "bin": {
-    "create-hefestos-app": "src/index.js"
+    "create-harpia-app": "src/index.js"
+  },
+  "files": ["src"],
+  "engines": {
+    "bun": ">= 1.2.x"
   },
   "keywords": [
     "harpiats",
@@ -28,11 +32,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/harpia-framework/create-harpia-app"
+    "url": "https://github.com/harpiats/create-harpia-app"
   },
-  "homepage": "https://github.com/harpia-framework/create-harpia-app",
+  "homepage": "https://github.com/harpiats/create-harpia-app",
   "bugs": {
-    "url": "https://github.com/harpia-framework/create-harpia-app/issues"
+    "url": "https://github.com/harpiats/create-harpia-app/issues"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",

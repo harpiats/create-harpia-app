@@ -3,7 +3,7 @@ import { installDependencies } from "src/utils/installDependencies";
 import { writeEnvFile } from "../writeEnvFile";
 
 export function GenerateApi(projectName, appMode) {
-  const command = `git clone --depth 1 https://github.com/harpia-framework/app ${projectName}`;
+  const command = `git clone --depth 1 https://github.com/harpiats/app ${projectName}`;
 
   console.log(colorize("green", "Preparing things, please, wait a moment."));
 

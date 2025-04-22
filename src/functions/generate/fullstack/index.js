@@ -9,7 +9,7 @@ import { setupTailwind } from "./setupTailwind";
 import { templateEngineConfigFile } from "./template-engine";
 
 export function GenerateFullStack(projectName, appMode, tailwind, alpine, htmx) {
-  const command = `git clone --depth 1 https://github.com/harpia-framework/app ${projectName}`;
+  const command = `git clone --depth 1 https://github.com/harpiats/app ${projectName}`;
 
   console.log(colorize("green", "Preparing things, please, wait a moment."));
 
