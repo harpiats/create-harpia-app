@@ -10,6 +10,7 @@ export function createResources(projectName) {
   const layoutOutputPath = path.join(process.cwd(), projectName, "resources/layouts/default.html");
   const partialtOutputPath = path.join(process.cwd(), projectName, "resources/partials/.gitkeep");
   const scriptsOutputPath = path.join(process.cwd(), projectName, "resources/assets/js/scripts.js");
+  const rootPageOutputPath = path.join(process.cwd(), projectName, "modules/root/pages/home/page.html");
 
   fs.mkdirSync(path.join(projectPath, "resources"), { recursive: true });
   fs.mkdirSync(path.join(projectPath, "resources/layouts"), { recursive: true });
@@ -17,11 +18,16 @@ export function createResources(projectName) {
   fs.mkdirSync(path.join(projectPath, "resources/assets"), { recursive: true });
   fs.mkdirSync(path.join(projectPath, "resources/assets/js"), { recursive: true });
   fs.mkdirSync(path.join(projectPath, "public"), { recursive: true });
+  fs.mkdirSync(path.join(projectPath, "modules/root/pages/home"), { recursive: true });
 
   const layoutPath = path.join(__dirname, "../../..", "templates/layout-default.txt");
   const layoutContent = fs.readFileSync(layoutPath, "utf-8");
 
+  const rootPagePath = path.join(__dirname, "../../..", "templates/root-page.txt");
+  const rootPageContent = fs.readFileSync(rootPagePath, "utf-8");
+
   fs.writeFileSync(layoutOutputPath, layoutContent);
   fs.writeFileSync(partialtOutputPath, "");
   fs.writeFileSync(scriptsOutputPath, "");
+  fs.writeFileSync(rootPageOutputPath, rootPageContent);
 }

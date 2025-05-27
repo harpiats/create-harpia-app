@@ -2,6 +2,7 @@ import { writeEnvFile } from "src/functions/writeEnvFile";
 import { clearProject, colorize, executeCommand } from "src/utils";
 import { installDependencies } from "src/utils/installDependencies";
 import { createResources } from "./createResources";
+import { replaceRootRoute } from "./replaceRootRoute";
 import { replaceServerFile } from "./replaceServerFile";
 import { setupAlpine } from "./setupAlpine";
 import { setupHTMX } from "./setupHtmx";
@@ -17,6 +18,7 @@ export function GenerateFullStack(projectName, appMode, tailwind, alpine, htmx) 
   clearProject(projectName);
   installDependencies(projectName);
   writeEnvFile(projectName, appMode);
+  replaceRootRoute(projectName);
 
   // Set up template engine
   templateEngineConfigFile(projectName);
