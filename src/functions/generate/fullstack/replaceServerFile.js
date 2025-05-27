@@ -35,7 +35,7 @@ export function replaceServerFile(projectName) {
     }
 
     // Insert static file configuration before CORS setup
-    const corsIndex = lines.findIndex((line) => line.startsWith("app.cors();"));
+    const corsIndex = lines.findIndex((line) => line.startsWith("app.cors"));
     if (corsIndex !== -1) {
       if (lines[corsIndex - 1].trim() !== "") {
         lines.splice(corsIndex, 0, "");

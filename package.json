@@ -1,6 +1,6 @@
 {
   "name": "create-harpia-app",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "module": "index.js",
   "description": "A CLI tool to create a new Harpia project",
   "main": "src/index.js",
@@ -43,9 +43,9 @@
     "@types/bun": "latest"
   },
   "peerDependencies": {
-    "typescript": "^5"
+    "typescript": "^5.8.2"
   },
   "dependencies": {
-    "@inquirer/prompts": "^7.3.2"
+    "@inquirer/prompts": "^7.5.3"
   }
 }
