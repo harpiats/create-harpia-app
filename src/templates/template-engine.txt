@@ -9,6 +9,6 @@ export const html = new TemplateEngine({
   path: {
     views: path.join(baseDir, "modules", "**", "pages"),
     layouts: path.join(baseDir, "resources", "layouts"),
-    partials: path.join(baseDir, "resources", "partials"),
+    components: path.join(baseDir, "resources", "components"),
   },
 });

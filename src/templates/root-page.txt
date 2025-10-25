@@ -1,7 +1,6 @@
-{{= layout('default') }}
-{{~ var title = "Homepage" }}
+@layout('default', { title: "Harpia Framework" })
 
-{{= block('body') }}
+@block('body')
   <main class="flex h-screen items-center justify-center bg-gray-100 dark:bg-gray-900">
     <div class="text-center">
       <h1 class="text-6xl font-bold text-gray-800 mb-6 dark:text-white">Harpia</h1>
@@ -15,4 +14,4 @@
       </div>
     </div>
   </main>
-{{= endblock }}
+@endblock
