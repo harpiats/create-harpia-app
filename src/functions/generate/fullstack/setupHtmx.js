@@ -42,7 +42,17 @@ export function setupHTMX(projectName) {
       const hasHTMXImport = scriptsContent.includes('import "htmx.org";');
 
       if (!hasHTMXImport) {
-        const newContent = `${htmxContent}\n${scriptsContent}`;
+        let newContent = `${htmxContent}\n${scriptsContent}`;
+
+        const importRegex = /^import .*?;$/gm;
+        const matches = [...newContent.matchAll(importRegex)];
+
+        if (matches.length > 0) {
+          const lastImport = matches[matches.length - 1];
+          const insertIndex = lastImport.index + lastImport[0].length;
+
+          newContent = newContent.slice(0, insertIndex) + `\n\nwindow.htmx2.config.includeIndicatorStyles = false;` + newContent.slice(insertIndex);
+        }        
 
         fs.writeFile(scriptsPath, newContent, "utf-8", (err) => {
           if (err) {
