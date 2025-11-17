@@ -1,0 +1,42 @@
+@if checkEnv("ENV", "development")
+  <script nonce="{{ nonce }}">
+    (() => {
+      const WS_URL = "ws://localhost:{{ serverPort() }}/harpia/hr";
+      const RECONNECT_DELAY = 1000;
+
+      let ws;
+      let reloadTimeout = null;
+
+      function connect() {
+        ws = new WebSocket(WS_URL);
+
+        ws.addEventListener("message", (event) => {
+          try {
+            const msg = JSON.parse(event.data);
+
+            if (msg.type === "reload") {
+              if (reloadTimeout) clearTimeout(reloadTimeout);
+
+              reloadTimeout = setTimeout(() => {
+                location.reload();
+                reloadTimeout = null;
+              }, 100);
+            }
+          } catch (err) {
+            console.error("Erro ao processar mensagem WebSocket:", err);
+          }
+        });
+
+        ws.addEventListener("close", () => {
+          setTimeout(connect, RECONNECT_DELAY);
+        });
+
+        ws.addEventListener("error", () => {
+          ws.close();
+        });
+      }
+
+      connect();
+    })();
+  </script>
+@endif

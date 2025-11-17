@@ -3,7 +3,7 @@ import { TemplateEngine } from "harpiats/template-engine";
 
 const baseDir = process.cwd();
 
-export const html = new TemplateEngine({
+export const engine = new TemplateEngine({
   viewName: "page",
   useModules: true,
   path: {
@@ -12,3 +12,6 @@ export const html = new TemplateEngine({
     components: path.join(baseDir, "resources", "components"),
   },
 });
+
+engine.registerPlugin("checkEnv", (key, value) => process.env[key] === value);
+engine.registerPlugin("serverPort", () => process.env.PORT || 3000);

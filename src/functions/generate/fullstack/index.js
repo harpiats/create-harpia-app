@@ -8,6 +8,7 @@ import { setupAlpine } from "./setupAlpine";
 import { setupHTMX } from "./setupHtmx";
 import { setupTailwind } from "./setupTailwind";
 import { templateEngineConfigFile } from "./template-engine";
+import { hotReloadComponentFile } from "./hot-reload-component";
 
 export function GenerateFullStack(projectName, appMode, tailwind, alpine, htmx) {
   const command = `git clone --depth 1 https://github.com/harpiats/app ${projectName}`;
@@ -24,7 +25,8 @@ export function GenerateFullStack(projectName, appMode, tailwind, alpine, htmx) 
   templateEngineConfigFile(projectName);
   replaceServerFile(projectName);
   createResources(projectName);
-
+  hotReloadComponentFile(projectName);
+  
   if (tailwind) {
     setupTailwind(projectName);
   }
