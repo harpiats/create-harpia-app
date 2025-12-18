@@ -1,4 +1,6 @@
 import { writeEnvFile } from "src/functions/writeEnvFile";
+import { setupDatabase } from "src/functions/setupDatabase";
+import { generateFirstTypes } from "src/functions/generateFirstTypes";
 import { clearProject, colorize, executeCommand } from "src/utils";
 import { installDependencies } from "src/utils/installDependencies";
 import { createResources } from "./createResources";
@@ -10,23 +12,25 @@ import { setupTailwind } from "./setupTailwind";
 import { templateEngineConfigFile } from "./template-engine";
 import { hotReloadComponentFile } from "./hot-reload-component";
 
-export function GenerateFullStack(projectName, appMode, tailwind, alpine, htmx) {
+export function GenerateFullStack(projectName, appMode, database, tailwind, alpine, htmx) {
   const command = `git clone --depth 1 https://github.com/harpiats/app ${projectName}`;
 
   console.log(colorize("green", "Preparing things, please, wait a moment."));
 
   executeCommand(command);
   clearProject(projectName);
-  installDependencies(projectName);
-  writeEnvFile(projectName, appMode);
+  installDependencies(projectName, database);
+  writeEnvFile(projectName, appMode, database);
+  setupDatabase(projectName, database);
   replaceRootRoute(projectName);
+  generateFirstTypes(projectName);
 
   // Set up template engine
   templateEngineConfigFile(projectName);
   replaceServerFile(projectName);
   createResources(projectName);
   hotReloadComponentFile(projectName);
-  
+
   if (tailwind) {
     setupTailwind(projectName);
   }

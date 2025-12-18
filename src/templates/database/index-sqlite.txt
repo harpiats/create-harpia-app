@@ -1,0 +1,13 @@
+import { PrismaLibSql } from "@prisma/adapter-libsql";
+import { PrismaClient } from "app/database/prisma/client";
+import { Observer } from "./observer";
+
+const adapter = new PrismaLibSql({ url: process.env.DB_URL ?? '' });
+const client = new PrismaClient({ adapter });
+
+export const observer = new Observer(client);
+export const prisma = observer.prisma;
+
+export const {
+  // user: User
+} = prisma;
