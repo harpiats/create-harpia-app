@@ -42,6 +42,17 @@ async function getAppMode(flags) {
   });
 }
 
+async function getDatabase() {
+  return await select({
+    message: "Which database do you want to use?",
+    choices: [
+      { name: "PostgreSQL", value: "postgresql" },
+      { name: "MySQL", value: "mysql" },
+      { name: "SQLite", value: "sqlite" },
+    ],
+  });
+}
+
 async function getOptions(appMode, flags) {
   if (appMode !== "fullstack") return {};
 
@@ -81,12 +92,13 @@ async function main() {
     const { projectName: initialName, flags } = parseArgs();
     const projectName = await getProjectName(initialName);
     const appMode = await getAppMode(flags);
+    const database = await getDatabase();
     const options = await getOptions(appMode, flags);
 
     if (appMode === "fullstack") {
-      GenerateFullStack(projectName, appMode, options.tailwind, options.alpine, options.htmx);
+      GenerateFullStack(projectName, appMode, database, options.tailwind, options.alpine, options.htmx);
     } else {
-      GenerateApi(projectName, appMode);
+      GenerateApi(projectName, appMode, database);
     }
 
     console.log("Let's code");
