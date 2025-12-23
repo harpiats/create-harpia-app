@@ -48,8 +48,6 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "@inquirer/prompts": "^8.1.0",
-    "@prisma/adapter-libsql": "^7.2.0",
-    "@prisma/adapter-pg": "^7.2.0"
+    "@inquirer/prompts": "^8.1.0"
   }
 }
