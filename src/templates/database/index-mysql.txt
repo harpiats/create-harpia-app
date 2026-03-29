@@ -1,5 +1,5 @@
 import { PrismaMariaDb } from "@prisma/adapter-mariadb";
-import { PrismaClient } from "app/database/prisma/client";
+import { PrismaClient } from "./prisma/client";
 import { Observer } from "./observer";
 
 const adapter = new PrismaMariaDb({
@@ -12,7 +12,7 @@ const adapter = new PrismaMariaDb({
 
 const client = new PrismaClient({ adapter });
 
-export const observer = new Observer(client);
+export const observer = new Observer<typeof client>(client);
 export const prisma = observer.prisma;
 
 export const {
