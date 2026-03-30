@@ -10,9 +10,9 @@ export function setupDatabase(projectName, database) {
    * Setup database index file
    */
   const filePath = {
-    "postgresql": path.join(__dirname, "..", "templates/database/index-postgres.txt"),
-    "mysql": path.join(__dirname, "..", "templates/database/index-mysql.txt"),
-    "sqlite": path.join(__dirname, "..", "templates/database/index-sqlite.txt"),
+    postgresql: path.join(__dirname, "..", "templates/database/index-postgres.txt"),
+    mysql: path.join(__dirname, "..", "templates/database/index-mysql.txt"),
+    sqlite: path.join(__dirname, "..", "templates/database/index-sqlite.txt"),
   }[database];
 
   const outputPath = path.join(process.cwd(), projectName, "app/database/index.ts");

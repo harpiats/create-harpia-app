@@ -41,7 +41,7 @@ export function replaceServerFile(projectName) {
         lines.splice(configIndex, 0, "");
       }
       lines.splice(configIndex, 0, newConfig);
-    }    
+    }
 
     // Preserve formatting
     const formattedCode = lines.join("\n").replace(/\n{3,}/g, "\n\n");
