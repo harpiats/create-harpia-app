@@ -1,5 +1,5 @@
 import path from "node:path";
-import { TemplateEngine } from "harpiats/template-engine";
+import { TemplateEngine } from "@harpiats/core";
 
 const baseDir = process.cwd();
 

@@ -14,6 +14,9 @@ function parseArgs() {
     tailwind: args.includes("--tailwind") || args.includes("-t"),
     alpine: args.includes("--alpine") || args.includes("-l"),
     htmx: args.includes("--htmx") || args.includes("-h"),
+    postgresql: args.includes("--postgresql") || args.includes("--postgres") || args.includes("-p"),
+    mysql: args.includes("--mysql") || args.includes("-m"),
+    sqlite: args.includes("--sqlite") || args.includes("-s"),
   };
 
   return { projectName, flags };
@@ -42,7 +45,11 @@ async function getAppMode(flags) {
   });
 }
 
-async function getDatabase() {
+async function getDatabase(flags) {
+  if (flags.postgresql) return "postgresql";
+  if (flags.mysql) return "mysql";
+  if (flags.sqlite) return "sqlite";
+
   return await select({
     message: "Which database do you want to use?",
     choices: [
@@ -92,7 +99,7 @@ async function main() {
     const { projectName: initialName, flags } = parseArgs();
     const projectName = await getProjectName(initialName);
     const appMode = await getAppMode(flags);
-    const database = await getDatabase();
+    const database = await getDatabase(flags);
     const options = await getOptions(appMode, flags);
 
     if (appMode === "fullstack") {
