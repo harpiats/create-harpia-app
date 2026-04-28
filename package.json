@@ -1,11 +1,11 @@
 {
   "name": "create-harpia-app",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "module": "index.js",
   "description": "A CLI tool to create a new Harpia project",
   "main": "src/index.js",
   "type": "module",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "bin": {
     "create-harpia-app": "src/index.js"
   },
