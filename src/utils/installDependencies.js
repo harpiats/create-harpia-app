@@ -11,7 +11,7 @@ export function installDependencies(projectName, database) {
     `cd ${projectName} && git init`,
     `cd ${projectName} && git branch -M main`,
     `cd ${projectName} && bun install`,
-    `bun add ${databaseLib}`,
+    `cd ${projectName} && bun add ${databaseLib}`,
   ];
 
   executeCommandList(commandList);
