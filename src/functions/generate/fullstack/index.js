@@ -1,8 +1,8 @@
-import { writeEnvFile } from "src/functions/writeEnvFile";
-import { setupDatabase } from "src/functions/setupDatabase";
-import { generateFirstTypes } from "src/functions/generateFirstTypes";
-import { clearProject, colorize, executeCommand } from "src/utils";
-import { installDependencies } from "src/utils/installDependencies";
+import { writeEnvFile } from "../../writeEnvFile";
+import { setupDatabase } from "../../setupDatabase";
+import { generateFirstTypes } from "../../generateFirstTypes";
+import { clearProject, colorize, executeCommand } from "../../../utils";
+import { installDependencies } from "../../../utils/installDependencies";
 import { createResources } from "./createResources";
 import { replaceRootRoute } from "./replaceRootRoute";
 import { replaceServerFile } from "./replaceServerFile";

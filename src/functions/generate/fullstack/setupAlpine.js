@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { executeCommand } from "src/utils";
+import { executeCommand } from "../../../utils";
 
 export function setupAlpine(projectName) {
   const __filename = fileURLToPath(import.meta.url);

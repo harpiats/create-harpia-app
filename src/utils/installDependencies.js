@@ -1,4 +1,4 @@
-import { executeCommandList } from "src/functions";
+import { executeCommandList } from "../functions";
 
 export function installDependencies(projectName, database) {
   const databaseLib = {

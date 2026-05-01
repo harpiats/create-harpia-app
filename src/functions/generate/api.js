@@ -1,5 +1,5 @@
-import { clearProject, colorize, executeCommand } from "src/utils";
-import { installDependencies } from "src/utils/installDependencies";
+import { clearProject, colorize, executeCommand } from "../../utils";
+import { installDependencies } from "../../utils/installDependencies";
 import { writeEnvFile } from "../writeEnvFile";
 import { setupDatabase } from "../setupDatabase";
 import { generateFirstTypes } from "../generateFirstTypes";
